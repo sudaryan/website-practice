@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<style>
+    p {
+        /* max-width: 16em; */
+        font-family: monospace;
+        font-size: 1rem;
+        max-inline-size: 16rem;
+        /* overflow: auto; */
+        /* display: flex; */
+        /* flex-wrap: wrap; */
+    }
+</style>
+
+<body>
+
+    <p id="typing"></p>
+
+
+
+    <script>
+        let i = 0;
+        let text = "Ini adalah baris pertama.\nIni adalah baris kedua.\nIni adalah baris ketiga.";
+        let speed = 100;
+
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typing").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        typeWriter();
+    </script>
+
+</body>
+
+</html>

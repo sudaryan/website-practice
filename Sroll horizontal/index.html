@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sroll horizontal</title>
+    <style>
+        .wrap {
+            /* min-width: 150vw; */
+            background-color: #eee;
+            display: flex;
+            max-height: 200px;
+            overflow-x: auto;
+        }
+
+        .wrap::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .box {
+            min-width: 200px;
+            height: 200px;
+            margin: 5px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div class="box">img1</div>
+        <div class="box">img2</div>
+        <div class="box">img3</div>
+        <div class="box">img4</div>
+        <div class="box">img5</div>
+        <div class="box">img6</div>
+        <div class="box">img7</div>
+        <div class="box">img8</div>
+        <div class="box">img9</div>
+        <div class="box">img10</div>
+    </div>
+</body>
+
+</html>

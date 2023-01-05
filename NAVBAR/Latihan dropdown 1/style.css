@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url(img1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 2000px;
+}
+/* Navbar */
+.nav {
+    position: fixed;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.8);
+    border-bottom: 0.5px solid cyan;
+    box-shadow: 0 0 2px 2px rgba(0, 255, 255, 0.5);
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 70px;
+    justify-items: center;
+    align-items: center;
+    text-transform: uppercase;
+    line-height: 70px;
+}
+.nav .logo {
+    cursor: pointer;
+}
+.logo:hover {
+    color: cyan;
+}
+/* Menu */
+.menu {
+    display: inline;
+    float: right;
+    position: relative;
+    text-align: center;
+}
+.menu a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+
+}
+.menu a:hover {
+    color: cyan;
+}
+/* Dropdown menu */
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+.dropdown:hover .content {
+    display: block;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 70px;
+    left: -15px;
+    min-width: 150px;
+    font-size: .8rem;
+}
+.content a {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid cyan;
+}
+.content a:last-child {
+    border: none;
+}
+.content {
+    display: none;
+}
+/* Hamburger menu */
+.toggle-menu {
+    position: absolute;
+    right: 40px;
+    display: none;
+    width: 30px;
+    height: 30px;
+}
+.toggle-menu label {
+    position: relative;
+    display: grid;
+    justify-content: space-between;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 2;
+}
+input {
+    display: none;
+    z-index: -1;
+}
+.toggle-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+/* Hamburger Menu Animation */
+#check:checked ~ .toggle-menu span:nth-child(1){
+    background-color: cyan;
+    animation: span1 1s ease 1 alternate forwards;   
+}
+#check:checked ~ .toggle-menu span:nth-child(2){
+    background-color: cyan;
+    animation: span2 1s ease 1 alternate forwards;   
+}
+#check:checked ~ .toggle-menu span:nth-child(3){
+    background-color: cyan;
+    animation: span3 1s ease 1 alternate forwards;   
+}
+@keyframes span1 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    50% {
+        transform: translate(0, 10px);
+    }
+    100% {
+        transform: translate(0, 10px) rotate(-45deg);
+    }
+}
+@keyframes span2 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes span3 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    50% {
+        transform: translate(0, -10px);
+    }
+    100% {
+        transform: translate(0, -10px) rotate(45deg);
+    }
+}
+@media (max-width:650px) {
+    .nav .logo {
+    margin-left: 20px;
+}
+    .toggle-menu {
+        display: grid;
+    }
+    .menu {
+        position: absolute;
+        top: 70px;
+        background-color: rgba(0, 0, 0, .6);
+        width: 100%;
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        transition: all .5s;
+    }
+    .menu a {
+        display: block;
+        padding: 0 0;
+    }
+    .dropdown .content a {
+        padding: 0 20px;
+    }
+    #check:not(checked) ~ .menu {
+        height: 0;
+    }
+    #check:checked ~ .menu {
+        padding-top: 30px;
+        height: 100vh;
+    }
+    .menu .dropdown {
+        width: 100%;
+    }
+    .dropdown:hover .content {
+        padding: 0 10px;
+        margin-left: 5px;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        top: 0;
+        
+    }
+}
+
+
+
+

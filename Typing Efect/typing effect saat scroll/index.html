@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>typing ssat scroll</title>
+	<style>
+		body {
+			height: 150vh;
+		}
+		#typing-effect {
+			margin-top: 120vh;
+		}
+	</style>
+</head>
+<body>
+	<!-- Buat elemen yang akan digunakan untuk menampilkan efek mengetik -->
+<div id="typing-effect">
+</div>
+
+<script type="text/javascript">
+// Buat array dengan teks yang akan ditampilkan dalam efek mengetik
+var typingText = [  "Selamat datang!",  "Saya adalah Assistant, sebuah model pembelajaran mesin yang dapat membantu Anda dengan pertanyaan dan masalah yang Anda miliki.",  "Apa yang dapat saya bantu hari ini?"];
+
+// Variabel untuk menyimpan elemen HTML yang akan digunakan untuk menampilkan efek mengetik
+var typingElement = document.getElementById("typing-effect");
+
+// Variabel untuk menyimpan indeks array saat ini
+var typingIndex = 0;
+
+// Variabel untuk menyimpan huruf saat ini dari teks saat ini
+var typingChar = 0;
+
+// Fungsi yang akan dipanggil setiap 100 milisecond untuk menampilkan efek mengetik
+function type() {
+  // Jika sudah mencapai akhir dari teks saat ini, pindah ke teks berikutnya
+  if (typingChar == typingText[typingIndex].length) {
+    typingIndex++;
+    typingChar = 0;
+  }
+
+  // Jika sudah mencapai akhir dari semua teks, hentikan efek mengetik
+  if (typingIndex == typingText.length) {
+    return;
+  }
+
+  // Tambahkan huruf saat ini ke elemen HTML
+  typingElement.innerHTML += typingText[typingIndex].charAt(typingChar);
+
+  // Tambahkan 1 ke huruf saat ini
+  typingChar++;
+
+  // Panggil fungsi ini lagi setelah 100 milisecond
+  setTimeout(type, 100);
+}
+
+// Panggil fungsi type untuk memulai efek mengetik
+type();
+
+// Buat variabel untuk menyimpan batas bawah dari elemen yang menampilkan efek mengetik
+var typingEffectBottom = typingElement.offsetTop + typingElement.offsetHeight;
+
+// Tambahkan event listener untuk mendeteksi saat halaman di-scroll
+window.addEventListener("scroll", function() {
+
+// Jika posisi scroll saat ini lebih dari batas bawah dari elemen yang menampilkan efek mengetik, mulai efek mengetik
+if (window.pageYOffset > typingEffectBottom) {
+type();
+}
+});
+</script>
+</body>
+</html>

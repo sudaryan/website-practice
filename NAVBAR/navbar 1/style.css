@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none; 
+    text-transform: uppercase;
+}
+body {
+    background-image: url(img/img1.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 2000px;
+}
+.nav {
+    height: 30px;
+    width: 100vw;
+    padding: 19px 30px;
+    background-color: black;
+    position: fixed;
+    border-bottom: 1px solid rgb(36, 107, 131);
+    box-shadow: 0px 0px 5px 1px rgb(36, 107, 131, 0.8);
+}
+.header {
+    display: inline;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    line-height: 30px;
+}
+.header label {
+    cursor: pointer;
+}
+.header label:hover {
+    color: cyan;
+}
+.menu {
+    display: inline;
+    float: right;
+    font-size: 1.1rem;
+    line-height: 30px;
+    position: relative;
+    left: -50px;
+}
+.menu a {
+    padding: 10px 12px;
+    font-weight: 550px;
+    color: white;
+    transition: all .5s !important;
+}
+.menu a:hover {
+    color: cyan;
+    background-color: rgba(36, 107, 131 .8);
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.content {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    min-width: 150px;
+    font-size: 1rem;
+    /* top: 34px; */
+    z-index: 1;
+    border-top: 1px solid rgb(36, 107, 131);  
+}
+.dropdown:hover .content {
+    display: block;
+}
+.content a {
+    padding: 12px 10px;
+    border-bottom: 1px solid rgb(36, 107, 131);
+    display: block;
+}
+.content a:hover {
+    color: cyan;
+    background-color: rgba(0, 0, 0, .8);
+}
+.btn label {
+    cursor: pointer;
+    transition: all .5s ease-in;
+}
+#check, .btn {
+    display: none;
+}
+/* Hamburger Menu Animation */
+#check:checked ~ .btn label span:nth-child(1){
+    background-color: cyan;
+    animation: span1 1s ease 1 alternate forwards;   
+}
+#check:checked ~ .btn label span:nth-child(2){
+    background-color: cyan;
+    animation: span2 1s ease 1 alternate forwards;   
+}
+#check:checked ~ .btn label span:nth-child(3){
+    background-color: cyan;
+    animation: span3 1s ease 1 alternate forwards;   
+}
+@keyframes span1 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    50% {
+        transform: translate(0, 9px);
+    }
+    100% {
+        transform: translate(0, 9px) rotate(-45deg);
+    }
+}
+@keyframes span2 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes span3 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    50% {
+        transform: translate(0, -9px);
+    }
+    100% {
+        transform: translate(0, -8px) rotate(45deg);
+    }
+}
+
+@media (max-width:860px) {
+    
+    .btn {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 25px;
+    }
+    .btn label {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 80px;
+        height: 20px;
+        padding: 25px;
+        background-color: rgba(255, 255, 255, 0);
+        z-index: 5;
+    }
+    .btn label span {
+        width: 22px;
+        height: 3px;
+        background-color: white;
+        transition: all .5s ease-in;
+    }
+    .menu {
+        position: absolute;
+        display: block;
+        text-align: center;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .3);
+        top: 70px;
+        right: 0;
+        overflow-y: hidden;
+        transition: all .5s ease-in;
+    }
+    .menu a {
+        display: block;
+    }
+    #check:checked ~ .btn label span{
+    background-color: cyan;
+    /* transition: all 5s ease; */
+    }
+    #check:not(checked) ~ .menu {
+        height: 0;
+    }
+    #check:checked ~ .menu {
+        height: 100vh;
+        overflow-y: auto;
+    }
+    .menu .dropdown {
+        float: none;
+        width: 100%;
+    }
+    .menu .content {
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .menu.content a {
+        color: darkcyan;
+    }
+}

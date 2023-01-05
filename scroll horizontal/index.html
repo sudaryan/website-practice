@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>scroll horizontal</title>
+	<style>
+/* Buat gaya untuk container scroll horizontal */
+.horizontal-scroll {
+	width: 100%;
+  display: flex;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+}
+
+/* Buat gaya untuk elemen-elemen dalam container scroll horizontal */
+.horizontal-scroll > div {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  background-color: lightgray;
+}
+
+	</style>
+</head>
+<body>
+<!-- Buat elemen yang akan digunakan sebagai container untuk scroll horizontal -->
+<div class="horizontal-scroll">
+  <!-- Buat elemen-elemen yang akan ditampilkan dalam scroll horizontal -->
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+  <div>Item 4</div>
+  <div>Item 5</div>
+  <div>Item 6</div>
+  <div>Item 7</div>
+  <div>Item 8</div>
+  <div>Item 9</div>
+  <div>Item 10</div>
+  <!-- Dan seterusnya -->
+</div>
+
+<!-- Buat tombol untuk menggulirkan ke kiri -->
+<button id="scroll-left">Scroll Left</button>
+
+<!-- Buat tombol untuk menggulirkan ke kanan -->
+<button id="scroll-right">Scroll Right</button>
+
+<script>
+	// Variabel untuk menyimpan elemen container scroll horizontal
+var horizontalScroll = document.querySelector(".horizontal-scroll");
+
+// Variabel untuk menyimpan tombol scroll kiri
+var scrollLeftButton = document.getElementById("scroll-left");
+
+// Tambahkan event listener untuk tombol scroll kiri
+scrollLeftButton.addEventListener("click", function() {
+  // Gulir ke kiri sebesar setengah lebar container scroll horizontal
+  horizontalScroll.scrollBy({
+    left: -horizontalScroll.offsetWidth / 2,
+    behavior: "smooth"
+  });
+});
+
+// Variabel untuk menyimpan tombol scroll kanan
+var scrollRightButton = document.getElementById("scroll-right");
+
+// Tambahkan event listener untuk tombol scroll kanan
+scrollRightButton.addEventListener("click", function() {
+  // Gulir ke kanan sebesar setengah lebar container scroll horizontal
+  horizontalScroll.scrollBy({
+    left: horizontalScroll.offsetWidth / 2,
+    behavior: "smooth"
+  });
+});
+
+</script>
+
+</body>
+</html>

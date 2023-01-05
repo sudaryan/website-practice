@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Write</title>
+    <style type="text/css">
+        body {
+            background-color: salmon;
+        }
+
+        .container {
+            width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Membuat efek mengetik mengunakan javascript</h1>
+        <button onclick="typeWriter()">Klik</button>
+        <p id="demo"></p>
+    </div>
+    <script>
+        var i = 0;
+        var txt = 'sudaryanto';
+        var speed = 100;
+
+        function typeWriter() {
+            if (i < txt.length) {
+                document.getElementById("demo").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+    </script>
+</body>
+
+</html>

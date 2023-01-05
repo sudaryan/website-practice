@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 id="typing">Hello World!</h1>
+
+<script>
+// Array of strings to type out
+var aText = [ "Hello!", "I'm a typing effect.", "How are you today?", "Saya baik-baik saja" ];
+
+var iSpeed = 100; // Time between typing (in milliseconds)
+var iIndex = 0; // Current text array position
+var iArrLength = aText[0].length; // The length of the text array
+var iScrollAt = 20; // Start scrolling up at this many lines
+
+var iTextPos = 0; // Initialise text position
+var sContents = ''; // Initialise contents variable
+var iRow; // Initialise current row
+
+function typewriter()
+{
+ sContents =  ' ';
+ iRow = Math.max(0, iIndex-iScrollAt);
+ var destination = document.getElementById("typing");
+
+ while ( iRow < iIndex ) {
+  sContents += aText[iRow++] + '<br />';
+ }
+ destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "|";
+ if ( iTextPos++ == iArrLength ) {
+  iTextPos = 0;
+  iIndex++;
+  if ( iIndex != aText.length ) {
+   iArrLength = aText[iIndex].length;
+   setTimeout("typewriter()", 500);
+  }
+ } else {
+  setTimeout("typewriter()", iSpeed);
+ }
+}
+
+typewriter();
+
+</script>
+
+</body>
+</html>
