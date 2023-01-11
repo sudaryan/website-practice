@@ -114,6 +114,10 @@ nav a:hover span {
     top: 0;
     justify-content: center;
     align-items: center;
+    transition: .5s;
+}
+.sec1 .logo {
+    display: none;
 }
 .sec1:hover .icon1 {
     transform: translateY(10px);
@@ -310,6 +314,7 @@ nav a:hover span {
     left: 20%;
     overflow-x: hidden;
     box-sizing: border-box;
+    transition: .4s;
 }
 .content2 {
     font-family: Inconsolata, monospace;
@@ -494,6 +499,9 @@ nav a:hover span {
     overflow-x: hidden;
     box-sizing: border-box;
 }
+.sec4 .container:nth-child(3) {
+    display: none;
+}
 .content5 {
     font-family: Inconsolata, monospace;
     position: relative;
@@ -665,7 +673,7 @@ nav a:hover span {
 .sec6 h1 {
     font-size: 2rem;
     margin-left: 50px;
-    margin-top: 5%;
+    margin-top: 0;
     font-weight: 400;
 }
 .sec6 h1 i {
@@ -710,10 +718,11 @@ nav a:hover span {
 }
 .porto .porto-item img {
     width: 100%;
+    /* height: 100%; */
 }
 .sec6 button {
     border: 1px solid red;
-    margin: 2% 50px;
+    margin: 1% 50px;
     transition: .4s;
     width: 180px;
     height: 40px;
@@ -739,6 +748,8 @@ nav a:hover span {
 }
 .sec6 .slide {
     display: flex;
+    width: 100%;
+    /* height: 100%; */
     animation: slide 30s infinite;
 }
 @keyframes slide {
@@ -783,8 +794,6 @@ nav a:hover span {
     height: 100vh;
     position: relative;
     left: 20%;
-    overflow-x: hidden;
-    box-sizing: border-box;
     font-family: Cantarell Light, Calibri, 'Trebuchet MS', sans-serif;
 }
 .sec7 .container {
@@ -794,20 +803,16 @@ nav a:hover span {
     position: relative;
     width: 65%;
     left: 5%;
-    /* top: 5%; */
+    top: 5%;
 }
 .sec7 .container .about {
     width: 100%;
-    height: 100%;
 }
 .sec7 .container .about h1 {
     margin-top: 3%;
     font-size: 3rem;
     text-transform: uppercase;
     font-weight: bold;
-    /* letter-spacing: 3px; */
-    /* color: var(--primary); */
-    /* font-size: var(--small); */
 }
 .sec7 .container .about h2 {
     font-size: 1.8rem;
@@ -825,7 +830,6 @@ nav a:hover span {
 .sec7 .tools {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    position: relative;
     margin-top: 1%;
 }
 .sec7 .tools h2 {
@@ -843,14 +847,342 @@ nav a:hover span {
 /* section 7 / about end */
 /* footer */
 footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 1.2rem;
     text-align: center;
     width: 80%;
-    height: 10vh;
+    height: 20vh;
     position: relative;
     left: 20%;
     overflow-x: hidden;
     box-sizing: border-box;
     font-family: Cantarell Light, Calibri, 'Trebuchet MS', sans-serif;
-    line-height: 10vh;
+    /* transform: translateY(100%); */
+}
+/* footer end */
+/* Responsive */
+/* tablet */
+@media (max-width:1000px) {
+    header {
+        width: 80px;
+        height: 70vh;
+        right: 0px;
+        top: 10vh;
+        background-color: rgb(195, 195, 195, 0.5);
+        border-radius: 20px;
+        z-index: 9;
+    }
+    header:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    header .logo {
+        display: none;
+    }
+    header nav a span {
+        display: none;
+    }
+    header nav a {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-left: 15px;
+        transition: .4s;
+    }
+    header nav a:hover {
+        transform: scale(1.3);
+    }
+    .social {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        row-gap: 5px;
+    }
+    .work {
+        top: 85vh;
+        transform: scale(0.6);
+    }
+    .sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7 {
+        width: 100%;
+        left: 0;
+    }
+    .sec7 .container {
+        width: 80%;
+        top: 3%;
+    }
+    .sec1 .logo{
+        position: absolute;
+        top: 3%;
+        left: 40%;
+        display: block;
+        width: 150px;
+        cursor: pointer;   
+    }
+    .sec1 .logo img {
+        width: 100%;
+        border-radius: 50%;
+    }
+}
+/* phone */
+@media (max-width:700px) {
+    /* Header */
+    header {
+        width: 60px;
+        border-radius: 20px;
+        height: 50vh;
+        top: 25vh;
+    }
+    header nav a {
+        font-size: 1.5rem;
+        margin-left: 15px;
+    }
+    header .social {
+        row-gap: 1px;
+    }
+    header .social i {
+        font-size: 1.5rem;
+    }
+    /* Setion 1 */
+    .sec1 i {
+        font-size: 2rem;
+    }
+    .sec1 .logo {
+        top: 10%;
+        left: 30%;
+    }
+    .sec1 .content1 {
+        display: block;
+        width:90%;
+    }
+    .sec1 .content1 .text1 {
+        margin-left: 5px;
+        padding: 5px;
+        min-width: 100%;
+        height: 155px;
+        box-shadow: 0px 20px 20px -20px rgba(255, 0, 0, .5);
+    }
+    .sec1 .content1 .text1 h2 {
+        font-size: 1.1rem;
+    }
+    .sec1 .content1 .text1 h4 {
+        font-size: 1.1rem;
+    }
+    .icon1 {
+        top: 15%;
+        left: 80%;
+    }
+    .icon2 {
+        top: 65%;
+        left: 75%;
+    }
+    .icon3 {
+        top: 33%;
+        left: 55%;
+    }
+    .icon4 {
+        top: 20%;
+        left: 12%;
+    }
+    .icon5 {
+        top: 70%;
+        left: 15%;
+    }
+    .icon6 {
+        top: 80%;
+        left: 50%;
+    }
+    .icon7 {
+        top: 3%;
+        left: 35%;
+    }
+    .more p {
+        display: none;
+    }
+    .more {
+        left: 0;
+    }
+    /* Section 2 */
+    .sec2 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 7fr 1fr;
+    }
+    .sec2 .content2 {
+        margin-top: 5%;
+        left: 10px;
+    }
+    .sec2 .content2 .text p, h2 {
+        font-size: 1.1rem;
+    }
+    .sec2 .message .chat {
+        width: 90%;
+        column-gap: 15px;
+        margin-top: 5%;
+    }
+    .sec2 .message .chat .chat-text {
+        font-size: 1rem;
+        letter-spacing: 0px;
+        line-height: 25px;
+        padding: 10px;
+    }
+    .sec2 .message .chat .people, .chat2 .people {
+        font-size: 1.5rem;
+        justify-self: start;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .sec2 .message .chat-me .chat-text {
+        font-size: 1rem;
+        letter-spacing: 0px;
+        line-height: 25px;
+        padding: 10px;
+    }
+    .sec2 .message .chat-me {
+        width: 90%;
+        column-gap: 5px;
+        margin-top: 5%;
+    }
+    .sec2 .message .chat-me .me {
+        margin-left: 0px;
+        font-size: 1.5rem;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+    .sec2 .message .chat2 {
+        width: 90%;
+        margin-top: 5%;
+        column-gap: 15px;
+    }
+    .sec2 .message .chat2 .chat-text2 {
+        font-size: 1rem;
+        letter-spacing: 0px;
+        padding: 10px;
+        word-spacing: 0px;
+        line-height: 20px;
+    }
+        /* Section 2 */
+    .sec3 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 3fr 0.8fr 2.3fr;
+    }
+    .sec3 .content3 {
+        left: 5px;
+    }
+    .sec3 .analis {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        width: 100%;
+        left: 0;
+        margin-top: 0;
+        gap: 0;
+    }
+    .sec3 .analis:hover {
+        transform: none;
+    } 
+    .sec3 .content4 {
+        left: 5px;
+        margin-top: 0;
+    }
+    .sec3 .text1 p, h2 {
+        font-size: 1rem;
+    }
+    .sec3 .analis p {
+        font-size: 1rem;
+    }
+    .sec3 .analis h1 {
+        font-size: 1.3rem;
+    }
+    /* Section 4 */
+    .sec4 .content5 {
+        position: static;
+        justify-content: center;
+        margin: 10px auto;
+    }
+    .sec4 .container:nth-child(2) {
+        display: none;
+    }
+    .sec4 .container:nth-child(3) {
+        display: inherit;
+    }
+    .sec5 .container {
+        grid-template-rows: 1fr 0.75fr 0.5fr;
+}
+    .sec5 .container .wrap {
+        margin-top: 15px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr;
+    }
+    .sec5 .container .wrap br {
+        display: none;
+    }
+    .sec5 .container .wrap i {
+        margin-right: 10px;
+    }
+    .sec5 .container .wrap span {
+        display: none;
+    }
+    .sec5 .container .wrap h2 {
+        font-size: 1.1rem;
+    }
+    .sec5 .container .wrap p {
+        font-size: 1rem;
+        line-height: 120%;
+        text-align: justify;
+        align-self: center;
+    }
+    /* Setion 6 / portofolio */
+    .sec6 .porto {
+        grid-template-columns: 1fr;
+        margin: 0px auto;
+        width: 65%;
+    }
+    .sec6 .porto .porto-item:nth-child(1) {
+        display: none;
+    }
+    .sec6 h1 {
+        width: 80%;
+        margin: 5% auto;
+        font-size: 1.5rem;
+    }
+    .porto .porto-item h3 {
+        display: none;
+    }
+    .porto .porto-item p {
+        display: none;
+    }
+    .sec6 button {
+        margin: 5% 10%;
+    }
+    /* Section 7 / About */
+    .sec7 {
+        height: auto;
+    }
+    .sec7 .container .about h1 {
+        font-size: 2rem;
+    }
+    .sec7 .container .about h2 {
+        font-size: 1.5rem;
+        line-height: 1.1;
+    }
+    .sec7 .tools {
+        grid-template-columns: 1fr;
+        margin-top: 10%;
+        row-gap: 10%;
+    }
+    .sec7 .container {
+        display: block;
+    }
+    /* Footer */
+    footer {
+        width: 100%;
+        left: 0;
+        margin-top: 20%;
+    }
+
+
+
+
 }
